@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshay Etukuri — AI/ML Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16181D;
+    --ink-soft: #1E2129;
+    --paper: #F7F4ED;
+    --paper-dim: #ECE8DD;
+    --accent: #5B7FFF;
+    --sage: #8FA888;
+    --text-dark: #3A3D45;
+    --text-mute: #8B8E96;
+    --line: #2C2F38;
+    --line-light: #DDD8C9;
+
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Source Serif 4', serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--body);
+    line-height: 1.6;
+    font-size: 17px;
+  }
+
+  a { color: inherit; }
+
+  /* ===== Header / Nav ===== */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(22, 24, 29, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .nav-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 28px;
+  }
+
+  .logo {
+    font-family: var(--mono);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--paper);
+    text-decoration: none;
+  }
+  .logo span { color: var(--accent); }
+
+  nav.tabs {
+    display: flex;
+    gap: 4px;
+  }
+
+  nav.tabs a {
+    font-family: var(--mono);
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--text-mute);
+    padding: 8px 14px;
+    border-radius: 6px 6px 0 0;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+    letter-spacing: 0.03em;
+  }
+
+  nav.tabs a:hover {
+    color: var(--paper);
+    border-color: var(--line);
+    background: var(--ink-soft);
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 110px 28px 90px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: var(--sage);
+    border-radius: 50%;
+    display: inline-block;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: var(--display);
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin-bottom: 22px;
+  }
+
+  .hero h1 .accent { color: var(--accent); }
+
+  .hero p.lede {
+    color: #C9C5B8;
+    font-size: 18px;
+    max-width: 480px;
+    margin-bottom: 28px;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 13px;
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 6px;
+    letter-spacing: 0.03em;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--ink);
+    font-weight: 600;
+    border: 1px solid var(--accent);
+  }
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--accent);
+  }
+
+  .btn-ghost {
+    border: 1px solid var(--line);
+    color: var(--paper);
+  }
+  .btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* Hero side card — terminal panel */
+  .terminal {
+    background: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: var(--mono);
+    font-size: 13px;
+    box-shadow: 0 20px 60px -20px rgba(91, 127, 255, 0.25);
+  }
+
+  .terminal-bar {
+    display: flex;
+    gap: 7px;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .terminal-bar span {
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    background: #444955;
+  }
+  .terminal-bar span:nth-child(1) { background: #E5645A; }
+  .terminal-bar span:nth-child(2) { background: #E5C158; }
+  .terminal-bar span:nth-child(3) { background: var(--sage); }
+
+  .terminal-body {
+    padding: 18px 18px 22px;
+    color: #C9C5B8;
+  }
+
+  .terminal-body .line { margin-bottom: 9px; }
+  .terminal-body .prompt { color: var(--sage); }
+  .terminal-body .key { color: var(--accent); }
+  .terminal-body .val { color: var(--paper); }
+  .terminal-body .comment { color: var(--text-mute); }
+
+  /* ===== Sections (paper cards) ===== */
+  .section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 70px 28px;
+  }
+
+  .section-card {
+    background: var(--paper);
+    color: var(--text-dark);
+    border-radius: 14px;
+    padding: 48px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 36px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 16px;
+  }
+
+  .section-head h2 {
+    font-family: var(--display);
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .section-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-mute);
+    letter-spacing: 0.08em;
+  }
+
+  /* About */
+  .about-text {
+    font-size: 18px;
+    color: var(--text-dark);
+    max-width: 680px;
+  }
+
+  /* Skills — chips like terminal commands */
+  .skill-groups {
+    display: grid;
+    gap: 28px;
+  }
+
+  .skill-group h3 {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-mute);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .chip {
+    font-family: var(--mono);
+    font-size: 13px;
+    background: var(--ink);
+    color: var(--sage);
+    padding: 7px 14px;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+  }
+  .chip::before {
+    content: '> ';
+    color: var(--accent);
+  }
+
+  /* Education — index card list */
+  .edu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .edu-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line-light);
+  }
+  .edu-item:last-child { border-bottom: none; }
+
+  .edu-date {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-mute);
+    letter-spacing: 0.04em;
+    padding-top: 3px;
+  }
+
+  .edu-item h3 {
+    font-family: var(--display);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .edu-item p {
+    color: var(--text-dark);
+    font-size: 15px;
+  }
+
+  .edu-grade {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    margin-top: 6px;
+    display: inline-block;
+  }
+
+  /* Projects */
+  .project-card {
+    border: 1px solid var(--line-light);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s ease;
+  }
+  .project-card:hover {
+    border-color: var(--accent);
+  }
+  .project-card:last-child { margin-bottom: 0; }
+
+  .project-card h3 {
+    font-family: var(--display);
+    font-size: 21px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .project-status {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: var(--sage);
+    color: var(--ink);
+    padding: 3px 9px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .project-card p {
+    color: var(--text-dark);
+    margin-bottom: 14px;
+    font-size: 15.5px;
+  }
+
+  .project-link {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .project-link:hover { border-bottom-color: var(--accent); }
+
+  /* Contact / footer */
+  footer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 28px 80px;
+    text-align: center;
+  }
+
+  footer h2 {
+    font-family: var(--display);
+    font-size: 32px;
+    margin-bottom: 16px;
+  }
+
+  footer p {
+    color: #C9C5B8;
+    margin-bottom: 28px;
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .footer-bottom {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-mute);
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 720px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 90px 22px 60px;
+      gap: 40px;
+    }
+    .hero h1 { font-size: 36px; }
+    .nav-wrap { padding: 14px 18px; }
+    nav.tabs { display: none; }
+    .section { padding: 40px 18px; }
+    .section-card { padding: 28px; }
+    .section-head h2 { font-size: 24px; }
+    .edu-item { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-eyebrow::before { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Focus visibility */
+  a:focus-visible, .btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <a href="#top" class="logo">akshay<span>.etukuri</span></a>
+    <nav class="tabs">
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+      <a href="#education">education</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div>
+    <div class="hero-eyebrow">open to opportunities</div>
+    <h1>Aspiring <span class="accent">AI / Data Science</span> Engineer</h1>
+    <p class="lede">Computer Science graduate building practical depth in machine learning, deep learning, and CNNs — through self-directed study, hands-on projects, and active GitHub contributions.</p>
+    <div class="hero-links">
+      <a href="#projects" class="btn btn-primary">View projects</a>
+      <a href="https://github.com/AkshayEtukuri" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/akshay-etukuri-054a15207/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+    </div>
+  </div>
+  <div class="terminal">
+    <div class="terminal-bar"><span></span><span></span><span></span></div>
+    <div class="terminal-body">
+      <div class="line"><span class="prompt">$</span> whoami</div>
+      <div class="line"><span class="val">Akshay Etukuri</span></div>
+      <div class="line"><span class="comment">&mdash;</span></div>
+      <div class="line"><span class="key">based_in</span>: <span class="val">Hyderabad, India</span></div>
+      <div class="line"><span class="key">focus</span>: <span class="val">ML / Deep Learning / CNN</span></div>
+      <div class="line"><span class="key">stack</span>: <span class="val">Python, PyTorch</span></div>
+      <div class="line"><span class="key">status</span>: <span class="val">self-directed study</span></div>
+      <div class="line"><span class="prompt">$</span> <span class="comment">_</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-card">
+    <div class="section-head">
+      <h2>About</h2>
+      <span class="section-tag">// summary</span>
+    </div>
+    <p class="about-text">
+      Computer Science graduate with a strong interest in Artificial Intelligence, Machine Learning, and Data Science. Currently building expertise in Python, PyTorch, Deep Learning, and Convolutional Neural Networks through self-directed study and hands-on projects. Passionate about applying AI to solve real-world problems and continuously expanding technical skills through projects, certifications, and active GitHub contributions.
+    </p>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="section-card">
+    <div class="section-head">
+      <h2>Skills</h2>
+      <span class="section-tag">// stack</span>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Languages &amp; Core</h3>
+        <div class="chip-row">
+          <span class="chip">python</span>
+          <span class="chip">sql</span>
+          <span class="chip">git</span>
+          <span class="chip">github</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>ML / AI</h3>
+        <div class="chip-row">
+          <span class="chip">machine learning</span>
+          <span class="chip">deep learning</span>
+          <span class="chip">pytorch</span>
+          <span class="chip">cnn</span>
+          <span class="chip">artificial intelligence</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Data</h3>
+        <div class="chip-row">
+          <span class="chip">data analysis</span>
+          <span class="chip">numpy</span>
+          <span class="chip">pandas</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="section-card">
+    <div class="section-head">
+      <h2>Projects</h2>
+      <span class="section-tag">// build</span>
+    </div>
+
+    <div class="project-card">
+      <h3>Classification of Online Toxic Comments</h3>
+      <p>Exploration of machine learning algorithms for a multi-label classification problem — identifying disrespectful, abusive, or unreasonable online comments that drive users away from discussions. Addresses a real challenge faced by platforms struggling to moderate and sustain healthy user comment sections.</p>
+      <a href="https://github.com/AkshayEtukuri/major-project" class="project-link" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Respiratory Analysis: Lung Infection Detection via Cough Signals</h3>
+      <p>A Convolutional Neural Network (CNN) model trained to detect various lung infections from cough audio. Combined a disease diagnosis dataset with a respiratory sound dataset, extracted audio features, and built a CNN-based classification model to identify illness patterns from sound.</p>
+      <a href="https://github.com/AkshayEtukuri/mini-project-repo" class="project-link" target="_blank">View on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="education">
+  <div class="section-card">
+    <div class="section-head">
+      <h2>Education</h2>
+      <span class="section-tag">// timeline</span>
+    </div>
+    <div class="edu-list">
+      <div class="edu-item">
+        <div class="edu-date">2020 — 2024</div>
+        <div>
+          <h3>Malla Reddy Institute of Technology and Science</h3>
+          <p>Bachelor of Technology, Computer Science</p>
+          <span class="edu-grade">CGPA: 6.65 / 10</span>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-date">2018 — 2020</div>
+        <div>
+          <h3>Sri Chaitanya Junior College</h3>
+          <p>Intermediate Education, MPC</p>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div class="edu-date">2017 — 2018</div>
+        <div>
+          <h3>Kothakota Pupils School</h3>
+          <p>High School</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <h2>Get in touch</h2>
+  <p>Open to internships, collaborations, and conversations about AI/ML.</p>
+  <div class="footer-links">
+    <a href="mailto:etukuriakshay8@gmail.com" class="btn btn-primary">Email me</a>
+    <a href="https://www.linkedin.com/in/akshay-etukuri-054a15207/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+    <a href="https://github.com/AkshayEtukuri" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+  </div>
+  <div class="footer-bottom">
+    akshay etukuri · hyderabad, india · built with html &amp; css
+  </div>
+</footer>
+
+</body>
+</html>
