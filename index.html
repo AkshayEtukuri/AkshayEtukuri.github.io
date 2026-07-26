@@ -39,7 +39,6 @@
 
   a { color: inherit; }
 
-  /* ===== Header / Nav ===== */
   header {
     position: sticky;
     top: 0;
@@ -91,7 +90,6 @@
     background: var(--ink-soft);
   }
 
-  /* ===== Hero ===== */
   .hero {
     max-width: 1000px;
     margin: 0 auto;
@@ -186,7 +184,6 @@
     color: var(--accent);
   }
 
-  /* Hero side card — terminal panel */
   .terminal {
     background: var(--ink-soft);
     border: 1px solid var(--line);
@@ -224,7 +221,6 @@
   .terminal-body .val { color: var(--paper); }
   .terminal-body .comment { color: var(--text-mute); }
 
-  /* ===== Sections (paper cards) ===== */
   .section {
     max-width: 1000px;
     margin: 0 auto;
@@ -261,14 +257,12 @@
     letter-spacing: 0.08em;
   }
 
-  /* About */
   .about-text {
     font-size: 18px;
     color: var(--text-dark);
     max-width: 680px;
   }
 
-  /* Skills — chips like terminal commands */
   .skill-groups {
     display: grid;
     gap: 28px;
@@ -303,7 +297,6 @@
     color: var(--accent);
   }
 
-  /* Education — index card list */
   .edu-list {
     display: flex;
     flex-direction: column;
@@ -348,7 +341,6 @@
     display: inline-block;
   }
 
-  /* Projects */
   .project-card {
     border: 1px solid var(--line-light);
     border-radius: 10px;
@@ -398,7 +390,6 @@
   }
   .project-link:hover { border-bottom-color: var(--accent); }
 
-  /* Contact / footer */
   footer {
     max-width: 1000px;
     margin: 0 auto;
@@ -433,7 +424,6 @@
     padding-top: 24px;
   }
 
-  /* ===== Responsive ===== */
   @media (max-width: 720px) {
     .hero {
       grid-template-columns: 1fr;
@@ -449,13 +439,11 @@
     .edu-item { grid-template-columns: 1fr; gap: 6px; }
   }
 
-  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .hero-eyebrow::before { animation: none; }
     html { scroll-behavior: auto; }
   }
 
-  /* Focus visibility */
   a:focus-visible, .btn:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
@@ -538,15 +526,17 @@
           <span class="chip">deep learning</span>
           <span class="chip">pytorch</span>
           <span class="chip">cnn</span>
+          <span class="chip">transformers</span>
           <span class="chip">artificial intelligence</span>
         </div>
       </div>
       <div class="skill-group">
-        <h3>Data</h3>
+        <h3>Data &amp; MLOps</h3>
         <div class="chip-row">
           <span class="chip">data analysis</span>
           <span class="chip">numpy</span>
           <span class="chip">pandas</span>
+          <span class="chip">docker</span>
         </div>
       </div>
     </div>
@@ -560,13 +550,18 @@
       <span class="section-tag">// build</span>
     </div>
 
-
     <div class="project-card">
 <h3>NEXUS — Multi-Agent AI Assistant <span class="project-status">Live Demo</span></h3>
 <p>A multi-agent AI system that routes user requests to one of four specialized agents — Calendar, Email, Task, and Notes — using AI-based intent classification rather than hardcoded rules. Built a reusable agent architecture in Python with an LLM-powered router for agent-to-agent coordination, plus persistent JSON-based note storage. Originally built to run fully locally via Ollama (Llama 3.2), then deployed as a live web app using Groq's cloud API (Llama 3.1 8B) with a Streamlit interface.</p>
 <a href="https://github.com/AkshayEtukuri/NEXUS-Multi-Agent-AI" class="project-link" target="_blank">View on GitHub →</a>
 &nbsp;&nbsp;
 <a href="https://readmemd-5tuak6cu6j5kkkbuf3eb36.streamlit.app/" class="project-link" target="_blank">Try live demo →</a>
+</div>
+
+    <div class="project-card">
+<h3>AI-IDS — Sequence-Aware Intrusion Detection <span class="project-status">Capstone</span></h3>
+<p>Capstone project testing whether restructuring network flow features as an ordered sequence and modeling them with a transformer outperforms standard tabular modeling for intrusion detection. Built a full data pipeline on CICIDS2017 (2.8M+ rows) — including catching and fixing a 10.88% train/test leakage issue from duplicate flow records — then trained a leakage-free Random Forest baseline (99.87% accuracy) against a custom transformer with chunked sequence representation (98.89% accuracy), plus an attention-based interpretability layer showing which feature groups the model relied on per attack type. Packaged with Docker for reproducible inference.</p>
+<a href="https://github.com/AkshayEtukuri/AI-IDS-Capstone" class="project-link" target="_blank">View on GitHub →</a>
 </div>
 
  <div class="project-card">
