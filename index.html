@@ -551,6 +551,12 @@
     </div>
 
     <div class="project-card">
+<h3>AI-IDS — Transformer vs. Tabular for Intrusion Detection</h3>
+<p>A research-driven capstone comparing a custom PyTorch transformer against a Random Forest baseline on the CICIDS2017 network intrusion dataset (2.52M rows). Built a leakage-free pipeline that uncovered and fixed a critical deduplication bug (10.88% exact-duplicate rows inflating results to a suspicious 100%), then trained both models honestly: Random Forest reached 99.87% accuracy vs. the transformer's 98.89% on a CPU-constrained sample. Extracted per-attack attention weights to interpret what the transformer actually learned, flagging spurious signals rather than overselling them.</p>
+<a href="https://github.com/AkshayEtukuri/AI-IDS-Capstone" class="project-link" target="_blank">View on GitHub →</a>
+</div>
+
+    <div class="project-card">
 <h3>NEXUS — Multi-Agent AI Assistant <span class="project-status">Live Demo</span></h3>
 <p>A multi-agent AI system that routes user requests to one of four specialized agents — Calendar, Email, Task, and Notes — using AI-based intent classification rather than hardcoded rules. Built a reusable agent architecture in Python with an LLM-powered router for agent-to-agent coordination, plus persistent JSON-based note storage. Originally built to run fully locally via Ollama (Llama 3.2), then deployed as a live web app using Groq's cloud API (Llama 3.1 8B) with a Streamlit interface.</p>
 <a href="https://github.com/AkshayEtukuri/NEXUS-Multi-Agent-AI" class="project-link" target="_blank">View on GitHub →</a>
