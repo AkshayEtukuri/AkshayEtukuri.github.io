@@ -551,8 +551,8 @@
     </div>
 
     <div class="project-card">
-<h3>AI-IDS — Transformer vs. Tabular for Intrusion Detection</h3>
-<p>A research-driven capstone comparing a custom PyTorch transformer against a Random Forest baseline on the CICIDS2017 network intrusion dataset (2.52M rows). Built a leakage-free pipeline that uncovered and fixed a critical deduplication bug (10.88% exact-duplicate rows inflating results to a suspicious 100%), then trained both models honestly: Random Forest reached 99.87% accuracy vs. the transformer's 98.89% on a CPU-constrained sample. Extracted per-attack attention weights to interpret what the transformer actually learned, flagging spurious signals rather than overselling them.</p>
+<h3>AI-IDS — Sequence-Aware Intrusion Detection <span class="project-status">Capstone</span></h3>
+<p>A research-driven capstone testing whether restructuring network flow features as an ordered sequence, modeled with a custom PyTorch transformer, outperforms standard tabular modeling for intrusion detection. Built a full data pipeline on CICIDS2017 (2.52M+ rows) that uncovered and fixed a critical deduplication bug — 10.88% exact-duplicate rows were inflating baseline results to a suspicious 100% — then trained both models honestly: a leakage-free Random Forest baseline reached 99.87% accuracy against the transformer's 98.89% on a CPU-constrained sample. Extracted per-attack attention weights to interpret what the transformer actually learned, flagging spurious signals (e.g. extreme values on classes with too few samples) rather than overselling them. Packaged with Docker for reproducible inference.</p>
 <a href="https://github.com/AkshayEtukuri/AI-IDS-Capstone" class="project-link" target="_blank">View on GitHub →</a>
 </div>
 
@@ -562,12 +562,6 @@
 <a href="https://github.com/AkshayEtukuri/NEXUS-Multi-Agent-AI" class="project-link" target="_blank">View on GitHub →</a>
 &nbsp;&nbsp;
 <a href="https://readmemd-5tuak6cu6j5kkkbuf3eb36.streamlit.app/" class="project-link" target="_blank">Try live demo →</a>
-</div>
-
-    <div class="project-card">
-<h3>AI-IDS — Sequence-Aware Intrusion Detection <span class="project-status">Capstone</span></h3>
-<p>Capstone project testing whether restructuring network flow features as an ordered sequence and modeling them with a transformer outperforms standard tabular modeling for intrusion detection. Built a full data pipeline on CICIDS2017 (2.8M+ rows) — including catching and fixing a 10.88% train/test leakage issue from duplicate flow records — then trained a leakage-free Random Forest baseline (99.87% accuracy) against a custom transformer with chunked sequence representation (98.89% accuracy), plus an attention-based interpretability layer showing which feature groups the model relied on per attack type. Packaged with Docker for reproducible inference.</p>
-<a href="https://github.com/AkshayEtukuri/AI-IDS-Capstone" class="project-link" target="_blank">View on GitHub →</a>
 </div>
 
  <div class="project-card">
